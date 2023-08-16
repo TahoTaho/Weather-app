@@ -1,26 +1,28 @@
 const URL = 'http://api.weatherapi.com/v1/';
 const API_KEY = '0e0ae5b7be654d2eb23112554231408';
-const apiMethod = 'current.json';
+const requestMethod = 'current.json';
+const requestParameter = '&q=London&aqi=no';
+
+const locationName = document.getElementById('location-name');
+const currentTemp = document.getElementById('temperature');
+const weatherCondition = document.getElementById('condition');
+
+
 
 function callAPI () {
-    fetch(URL + apiMethod + '?key=' + API_KEY + '&q=London&aqi=no');
-}
-
-function callAPI2 () {
-    fetch('http://api.weatherapi.com/v1/current.json?key=0e0ae5b7be654d2eb23112554231408&q=London&aqi=no')
+    fetch(URL + requestMethod + '?key=' + API_KEY + requestParameter)
     .then(response => response.json())
     .then(data => {
+
         console.log(data);
 
-        let temp = data.current.temp_c;
-        console.log(temp);
-
-        let placeLocation = data.location.country;
-        console.log(placeLocation);~
-    })
+        locationName.textContent = data.location.name;
+        currentTemp.textContent = data.current.temp_c;
+        weatherCondition.textContent = data.current.condition.text;
+    });
 }
 
-console.log(callAPI());
 
-callAPI2();
+
+
 
