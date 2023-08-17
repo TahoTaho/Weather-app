@@ -17,7 +17,7 @@ function callAPI () {
         console.log(data);
 
         locationName.textContent = data.location.name;
-        currentTemp.textContent = data.current.temp_c;
+        currentTemp.textContent = data.current.temp_c + '°C';
         weatherCondition.textContent = data.current.condition.text;
     });
 }

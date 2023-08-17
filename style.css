@@ -1,11 +1,49 @@
-.card {
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+div {
     border: 1px solid black;
+}
+
+.container {
+    display: flex;
+    gap: 20px;
+}
+
+.weather-information {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: bisque;
+}
+
+#search-bar {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.current-weather {
+    border: 5px solid black;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 500px;
-    height: 600px;
     border-radius: 50px;
     padding: 20px;
+}
+
+#location-name {
+    font-size: 40px;
+}
+
+#temperature {
+    font-size: 50px;
+}
+
+#condition {
+    font-size: 30px;
 }
