@@ -2,15 +2,29 @@ body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     display: flex;
     flex-direction: column;
+    font-weight: bold;
 }
 
 div {
     border: 1px solid black;
 }
 
+.container,
+.dashboard,
+.current-weather,
+.forecast-today,
+.air-condition,
+.forecast-week,
+#search-bar {
+    border-radius: 15px;
+}
+
+
 .container {
     display: flex;
     gap: 20px;
+    background: #765827;
+    padding: 20px;
 }
 
 .weather-information {
@@ -18,32 +32,66 @@ div {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    background-color: bisque;
 }
 
 #search-bar {
     width: 100%;
     box-sizing: border-box;
+    padding: 10px;
 }
 
 .current-weather {
     border: 5px solid black;
-    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-radius: 50px;
+    padding: 20px;
+}
+
+.current-weather, 
+.dashboard, 
+.forecast-today,
+.air-condition,
+.forecast-week {
+    background: #EAC696;
+    display: flex;
+}
+
+.dashboard {
+    
+}
+
+.forecast-today {
+    padding: 20px;
+    flex-direction: column;
+}
+
+.forecast-time {
+    display: flex;
+    flex: 1;
+}
+
+.forecast-week {
+    flex-basis: 20%;
+}
+
+.time {
+    flex: 1;
+    padding: 50px;
+}
+
+.air-condition {
     padding: 20px;
 }
 
 #location-name {
-    font-size: 40px;
+    font-size: 25px;
 }
 
 #temperature {
-    font-size: 50px;
+    font-size: 35px;
 }
 
 #condition {
-    font-size: 30px;
+    font-size: 20px;
 }
