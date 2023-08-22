@@ -59,7 +59,6 @@ body {
 
 .forecast-today {
     flex-direction: column;
-    flex-shrink: 1;
 }
 
 .forecast-time {
@@ -78,6 +77,14 @@ body {
 .air-condition {
     display: flex;
     flex-direction: column;
+}
+
+.conditions {
+    display: flex;
+}
+
+.condition {
+    flex-grow: 1;
 }
 
 #location-name {
