@@ -64,6 +64,7 @@ body {
 .forecast-time {
     display: flex;
     flex: 1;
+    gap: 5px;
 }
 
 .forecast-week {
