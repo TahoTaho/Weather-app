@@ -21,7 +21,7 @@ body {
     gap: 20px;
     background: #765827;
     padding: 20px;
-    width: 70%;
+    min-width: 70%;
 }
 
 .weather-information {
@@ -59,16 +59,24 @@ body {
 
 .forecast-today {
     flex-direction: column;
+    padding: 20px;
 }
 
 .forecast-time {
     display: flex;
     flex: 1;
-    gap: 5px;
 }
 
 .forecast-week {
     flex-basis: 30%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.day {
+    display: flex;
+    justify-content: space-between;
 }
 
 .time {
@@ -78,6 +86,7 @@ body {
 .air-condition {
     display: flex;
     flex-direction: column;
+    padding: 20px;
 }
 
 .conditions {
