@@ -74,9 +74,14 @@ body {
     flex-direction: column;
 }
 
+.forecast-week-day {
+    flex-grow: 1;
+}
+
 .day {
     display: flex;
     justify-content: space-between;
+    flex-grow: 1;
 }
 
 .time {
