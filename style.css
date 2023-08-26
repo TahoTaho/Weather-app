@@ -74,7 +74,7 @@ body {
     flex-direction: column;
 }
 
-.forecast-week-day {
+.forecast-week-days {
     flex-grow: 1;
 }
 

@@ -1,5 +1,6 @@
 const URL = 'http://api.weatherapi.com';
 const API_KEY = '0e0ae5b7be654d2eb23112554231408';
+const dateFormat = new Intl.DateTimeFormat('en-US');
 
 function displayWeather(requestMethod, requestParameter) {
     fetch(URL + '/v1/' + requestMethod + '?key=' + API_KEY + requestParameter)
@@ -10,17 +11,18 @@ function displayWeather(requestMethod, requestParameter) {
         displayCurrentWeather(data);
         diplayTodaysForecast(data);
         displayAirConditions(data);
+        displayWeeklyForecast(data);
     });
 }
 
-function displayCurrentWeather(currentWeatherData) { 
+function displayCurrentWeather(forecastData) { 
     const locationName = document.getElementById('location-name');
     const currentTemp = document.getElementById('temperature');
     const weatherCond = document.getElementById('condition');
 
-    locationName.textContent = currentWeatherData.location.name;
-    currentTemp.textContent = currentWeatherData.current.temp_c + '°C';
-    weatherCond.textContent = currentWeatherData.current.condition.text;
+    locationName.textContent = forecastData.location.name;
+    currentTemp.textContent = forecastData.current.temp_c + '°C';
+    weatherCond.textContent = forecastData.current.condition.text;
 }
 
 function diplayTodaysForecast(forecastData) {
@@ -69,8 +71,25 @@ function displayAirConditions(airConditionData) {
 
     reelFeel.textContent = 'Reel Feel: ' + airConditionData.current.feelslike_c + '°C';
     windSpeed.textContent = 'Wind: ' + airConditionData.current.wind_kph + ' km/h';
-    chanceOfRain.textContent = 'Chance of Rain: ' + airConditionData.forecast.forecastday[0].day.daily_chance_of_rain;
     uvIndex.textContent = 'UV Index: ' + airConditionData.current.uv;   
+}
+
+function displayWeeklyForecast(forecastData) {
+    const day1 = document.getElementById('day-1');
+    const day2 = document.getElementById('day-2');
+    const day3 = document.getElementById('day-3');
+    const day4 = document.getElementById('day-4');
+    const day5 = document.getElementById('day-5');
+    const day6 = document.getElementById('day-6');
+    const day7 = document.getElementById('day-7');
+
+    day1.textContent = forecastData.forecast.forecastday[0].date;
+    day2.textContent = forecastData.forecast.forecastday[1].date;   
+    day3.textContent = forecastData.forecast.forecastday[2].date;
+    day4.textContent = forecastData.forecast.forecastday[3].date;
+    day5.textContent = forecastData.forecast.forecastday[4].date;
+    day6.textContent = forecastData.forecast.forecastday[5].date;
+    day7.textContent = forecastData.forecast.forecastday[6].date;
 }
 
 
