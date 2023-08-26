@@ -63,18 +63,23 @@ function diplayTodaysForecast(forecastData) {
     tempIn9PM.textContent = forecastData.forecast.forecastday[0].hour[21].temp_c + '°';
 }
 
-function displayAirConditions(airConditionData) {
+function displayAirConditions(forecastData) {
     const reelFeel = document.getElementById('reel-feel');
     const windSpeed = document.getElementById('wind-speed');
     const uvIndex = document.getElementById('uv-index');
-    const chanceOfRain = document.getElementById('chance-of-rain');
 
-    reelFeel.textContent = 'Reel Feel: ' + airConditionData.current.feelslike_c + '°C';
-    windSpeed.textContent = 'Wind: ' + airConditionData.current.wind_kph + ' km/h';
-    uvIndex.textContent = 'UV Index: ' + airConditionData.current.uv;   
+    reelFeel.textContent = 'Reel Feel: ' + forecastData.current.feelslike_c + '°C';
+    windSpeed.textContent = 'Wind: ' + forecastData.current.wind_kph + ' km/h';
+    uvIndex.textContent = 'UV Index: ' + forecastData.current.uv;   
 }
 
 function displayWeeklyForecast(forecastData) {
+    displayDayOfWeek(forecastData);
+    displayConditionOfDay(forecastData);
+    displayAvgTemperatureOfDay(forecastData);
+}
+
+function displayDayOfWeek(forecastData) {
     const day1 = document.getElementById('day-1');
     const day2 = document.getElementById('day-2');
     const day3 = document.getElementById('day-3');
@@ -90,6 +95,42 @@ function displayWeeklyForecast(forecastData) {
     day5.textContent = forecastData.forecast.forecastday[4].date;
     day6.textContent = forecastData.forecast.forecastday[5].date;
     day7.textContent = forecastData.forecast.forecastday[6].date;
+}
+
+function displayConditionOfDay(forecastData) {
+    const day1Cond = document.getElementById('day-1-condition');
+    const day2Cond = document.getElementById('day-2-condition');
+    const day3Cond = document.getElementById('day-3-condition');
+    const day4Cond = document.getElementById('day-4-condition');
+    const day5Cond = document.getElementById('day-5-condition');
+    const day6Cond = document.getElementById('day-6-condition');
+    const day7Cond = document.getElementById('day-7-condition');
+
+    day1Cond.textContent = forecastData.forecast.forecastday[0].day.condition.text;
+    day2Cond.textContent = forecastData.forecast.forecastday[1].day.condition.text;
+    day3Cond.textContent = forecastData.forecast.forecastday[2].day.condition.text;
+    day4Cond.textContent = forecastData.forecast.forecastday[3].day.condition.text;
+    day5Cond.textContent = forecastData.forecast.forecastday[4].day.condition.text;
+    day6Cond.textContent = forecastData.forecast.forecastday[5].day.condition.text;
+    day7Cond.textContent = forecastData.forecast.forecastday[6].day.condition.text;
+}
+
+function displayAvgTemperatureOfDay(forecastData) {
+    const day1Temp = document.getElementById('day-1-temperature');
+    const day2Temp = document.getElementById('day-2-temperature');
+    const day3Temp = document.getElementById('day-3-temperature');
+    const day4Temp = document.getElementById('day-4-temperature');
+    const day5Temp = document.getElementById('day-5-temperature');
+    const day6Temp = document.getElementById('day-6-temperature');
+    const day7Temp = document.getElementById('day-7-temperature');
+
+    day1Temp.textContent = forecastData.forecast.forecastday[0].day.avgtemp_c + '°C';
+    day2Temp.textContent = forecastData.forecast.forecastday[1].day.avgtemp_c + '°C';
+    day3Temp.textContent = forecastData.forecast.forecastday[2].day.avgtemp_c + '°C';
+    day4Temp.textContent = forecastData.forecast.forecastday[3].day.avgtemp_c + '°C';
+    day5Temp.textContent = forecastData.forecast.forecastday[4].day.avgtemp_c + '°C';
+    day6Temp.textContent = forecastData.forecast.forecastday[5].day.avgtemp_c + '°C';
+    day7Temp.textContent = forecastData.forecast.forecastday[6].day.avgtemp_c + '°C';
 }
 
 
