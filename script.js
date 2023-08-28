@@ -88,13 +88,13 @@ function displayDayOfWeek(forecastData) {
     const day6 = document.getElementById('day-6');
     const day7 = document.getElementById('day-7');
 
-    day1.textContent = forecastData.forecast.forecastday[0].date;
-    day2.textContent = forecastData.forecast.forecastday[1].date;   
-    day3.textContent = forecastData.forecast.forecastday[2].date;
-    day4.textContent = forecastData.forecast.forecastday[3].date;
-    day5.textContent = forecastData.forecast.forecastday[4].date;
-    day6.textContent = forecastData.forecast.forecastday[5].date;
-    day7.textContent = forecastData.forecast.forecastday[6].date;
+    day1.textContent = getDay(forecastData.forecast.forecastday[0].date);
+    day2.textContent = getDay(forecastData.forecast.forecastday[1].date);
+    day3.textContent = getDay(forecastData.forecast.forecastday[2].date);
+    day4.textContent = getDay(forecastData.forecast.forecastday[3].date);
+    day5.textContent = getDay(forecastData.forecast.forecastday[4].date);
+    day6.textContent = getDay(forecastData.forecast.forecastday[5].date);
+    day7.textContent = getDay(forecastData.forecast.forecastday[6].date);
 }
 
 function displayConditionOfDay(forecastData) {
@@ -133,8 +133,26 @@ function displayAvgTemperatureOfDay(forecastData) {
     day7Temp.textContent = forecastData.forecast.forecastday[6].day.avgtemp_c + '°C';
 }
 
+function getDay(date) {
+    const convDate = new Date(date).getDay();
+    switch (convDate) {
+        case 0: return 'Sunday';
+        case 1: return 'Monday';
+        case 2: return 'Tuesday';
+        case 3: return 'Wednesday';
+        case 4: return 'Thursday';
+        case 5: return 'Friday';
+        case 6: return 'Saturday';
+    }
+}
 
 displayWeather('forecast.json', '&q=London&days=7&aqi=no&alerts=no');
+
+
+
+
+
+
 
 
 
