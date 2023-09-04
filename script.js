@@ -2,8 +2,8 @@ const URL = 'http://api.weatherapi.com';
 const API_KEY = '0e0ae5b7be654d2eb23112554231408';
 const dateFormat = new Intl.DateTimeFormat('en-US');
 
-function displayWeather(requestMethod, requestParameter) {
-    fetch(URL + '/v1/' + requestMethod + '?key=' + API_KEY + requestParameter)
+function displayWeather(requestMethod, locationName, forecastDay, getAirQuality, getWeatherAlert) {
+    fetch(URL + '/v1/' + requestMethod + '?key=' + API_KEY + '&q=' + locationName + '&days=' + forecastDay + '&aqi=' + getAirQuality + '&alerts=' +  getWeatherAlert)
     .then(response => response.json())
     .then(data => {
         console.log(data);
@@ -64,13 +64,15 @@ function diplayTodaysForecast(forecastData) {
 }
 
 function displayAirConditions(forecastData) {
-    const reelFeel = document.getElementById('reel-feel');
+    const tempFelt = document.getElementById('temp-felt');
     const windSpeed = document.getElementById('wind-speed');
     const uvIndex = document.getElementById('uv-index');
+    const humidity = document.getElementById('humidity');
 
-    reelFeel.textContent = 'Reel Feel: ' + forecastData.current.feelslike_c + '°C';
+    tempFelt.textContent = 'Temperature Felt: ' + forecastData.current.feelslike_c + '°C';
     windSpeed.textContent = 'Wind: ' + forecastData.current.wind_kph + ' km/h';
-    uvIndex.textContent = 'UV Index: ' + forecastData.current.uv;   
+    uvIndex.textContent = 'UV Index: ' + forecastData.current.uv; 
+    humidity.textContent = 'Humidity: ' + forecastData.current.humidity;  
 }
 
 function displayWeeklyForecast(forecastData) {
@@ -91,10 +93,6 @@ function displayDayOfWeek(forecastData) {
     day1.textContent = getDay(forecastData.forecast.forecastday[0].date);
     day2.textContent = getDay(forecastData.forecast.forecastday[1].date);
     day3.textContent = getDay(forecastData.forecast.forecastday[2].date);
-    day4.textContent = getDay(forecastData.forecast.forecastday[3].date);
-    day5.textContent = getDay(forecastData.forecast.forecastday[4].date);
-    day6.textContent = getDay(forecastData.forecast.forecastday[5].date);
-    day7.textContent = getDay(forecastData.forecast.forecastday[6].date);
 }
 
 function displayConditionOfDay(forecastData) {
@@ -109,10 +107,6 @@ function displayConditionOfDay(forecastData) {
     day1Cond.textContent = forecastData.forecast.forecastday[0].day.condition.text;
     day2Cond.textContent = forecastData.forecast.forecastday[1].day.condition.text;
     day3Cond.textContent = forecastData.forecast.forecastday[2].day.condition.text;
-    day4Cond.textContent = forecastData.forecast.forecastday[3].day.condition.text;
-    day5Cond.textContent = forecastData.forecast.forecastday[4].day.condition.text;
-    day6Cond.textContent = forecastData.forecast.forecastday[5].day.condition.text;
-    day7Cond.textContent = forecastData.forecast.forecastday[6].day.condition.text;
 }
 
 function displayAvgTemperatureOfDay(forecastData) {
@@ -127,10 +121,6 @@ function displayAvgTemperatureOfDay(forecastData) {
     day1Temp.textContent = forecastData.forecast.forecastday[0].day.avgtemp_c + '°C';
     day2Temp.textContent = forecastData.forecast.forecastday[1].day.avgtemp_c + '°C';
     day3Temp.textContent = forecastData.forecast.forecastday[2].day.avgtemp_c + '°C';
-    day4Temp.textContent = forecastData.forecast.forecastday[3].day.avgtemp_c + '°C';
-    day5Temp.textContent = forecastData.forecast.forecastday[4].day.avgtemp_c + '°C';
-    day6Temp.textContent = forecastData.forecast.forecastday[5].day.avgtemp_c + '°C';
-    day7Temp.textContent = forecastData.forecast.forecastday[6].day.avgtemp_c + '°C';
 }
 
 function getDay(date) {
@@ -146,7 +136,14 @@ function getDay(date) {
     }
 }
 
-displayWeather('forecast.json', '&q=London&days=7&aqi=no&alerts=no');
+function experiment() {
+    for (let i = 0; i <= 6; i++) {
+        const day = document.getElementById('day-' + i + '-temperature');
+    }
+    //Turn displayAvgTemperatureOfDay fucntion to a for loop
+}
+
+displayWeather('forecast.json', 'London', '7','no','no');
 
 
 
