@@ -10,7 +10,7 @@ function displayWeather(requestMethod, locationName, forecastDay, getAirQuality,
 
         displayCurrentWeather(data);
         diplayTodaysForecast(data);
-        displayAirConditions(data);
+        displayWeatherDetails(data);
         displayWeeklyForecast(data);
     });
 }
@@ -63,16 +63,16 @@ function diplayTodaysForecast(forecastData) {
     tempIn9PM.textContent = forecastData.forecast.forecastday[0].hour[21].temp_c + '°';
 }
 
-function displayAirConditions(forecastData) {
+function displayWeatherDetails(forecastData) {
     const tempFelt = document.getElementById('temp-felt');
     const windSpeed = document.getElementById('wind-speed');
     const uvIndex = document.getElementById('uv-index');
     const humidity = document.getElementById('humidity');
 
-    tempFelt.textContent = 'Temperature Felt: ' + forecastData.current.feelslike_c + '°C';
-    windSpeed.textContent = 'Wind: ' + forecastData.current.wind_kph + ' km/h';
-    uvIndex.textContent = 'UV Index: ' + forecastData.current.uv; 
-    humidity.textContent = 'Humidity: ' + forecastData.current.humidity;  
+    tempFelt.textContent = forecastData.current.feelslike_c + '°C';
+    windSpeed.textContent = forecastData.current.wind_kph + ' km/h';
+    uvIndex.textContent = forecastData.current.uv; 
+    humidity.textContent = forecastData.current.humidity;  
 }
 
 function displayWeeklyForecast(forecastData) {
