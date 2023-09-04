@@ -6,22 +6,34 @@ body {
     align-items: center;
 }
 
-.container,
+.weather-app,
 .dashboard,
-.current-weather,
-.forecast-today,
-.air-condition,
-.forecast-week,
-#search-bar {
+.weather-information__current,
+.weather-information__today,
+.weather-information__details,
+.weekly-forecast,
+.weather-information__search-bar {
     border-radius: 15px;
 }
 
-.container {
+.dashboard, 
+.weather-information__today,
+.weather-information__details,
+.weekly-forecast {
+    background: #EAC696;
+    display: flex;
+}
+
+.weather-app {
     display: flex;
     gap: 20px;
     background: #765827;
     padding: 20px;
     min-width: 70%;
+}
+
+.dashboard {
+    flex-direction: column;
 }
 
 .weather-information {
@@ -31,85 +43,81 @@ body {
     flex-grow: 1;
 }
 
-#search-bar {
+
+.weather-information__search-bar {
     width: 100%;
     box-sizing: border-box;
     padding: 10px;
 }
 
-.current-weather {
+
+/*Current Weather Panel - START*/ 
+.weather-information__current {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
     padding-left: 5%;
 }
-
-.dashboard, 
-.forecast-today,
-.air-condition,
-.forecast-week {
-    background: #EAC696;
-    display: flex;
+#location-name {
+    font-size: 25px;
 }
-
-.dashboard {
-    flex-direction: column;
+#temperature {
+    font-size: 35px;
 }
+#condition {
+    font-size: 20px;
+}
+/*Current Weather Panel - END*/ 
 
-.forecast-today {
+
+/*Today's Forecast Panel - START*/ 
+.weather-information__today {
     flex-direction: column;
     padding: 20px;
 }
-
-.forecast-time {
+.weather-information__time {
     display: flex;
+}
+.weather-information__time-slot {
     flex: 1;
 }
+/*Today's Forecast Panel - END*/ 
 
-.forecast-week {
+
+/*Weather Details - START*/ 
+.weather-information__details {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+.weather-information__condition {
+    display: flex;
+}
+.weather-information__condition-slot {
+    flex-grow: 1;
+}
+.weather-information__condition-data {
+    flex-grow: 1;
+}
+/*Weather Details - END*/ 
+
+
+/*7 day forecast Panel - START*/ 
+.weekly-forecast {
     flex-basis: 30%;
     padding: 20px;
     display: flex;
     flex-direction: column;
 }
-
-.forecast-week-days {
+.weekly-forecast__day {
+    display: flex;
+    flex-direction: column;
     flex-grow: 1;
 }
-
-.day {
+.weekly-forecast__day-slot {
     display: flex;
     justify-content: space-between;
     flex-grow: 1;
 }
-
-.time {
-    flex: 1;
-}
-
-.air-condition {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-}
-
-.conditions {
-    display: flex;
-}
-
-.condition {
-    flex-grow: 1;
-}
-
-#location-name {
-    font-size: 25px;
-}
-
-#temperature {
-    font-size: 35px;
-}
-
-#condition {
-    font-size: 20px;
-}
+/*7 day forecast Panel - END*/ 
