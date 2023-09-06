@@ -54,20 +54,16 @@ body {
 /*Current Weather Panel - START*/ 
 .weather-information__current {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    padding-left: 5%;
 }
-#location-name {
-    font-size: 25px;
+
+.weather-information__current-slot {
+    flex-grow: 1;
 }
-#temperature {
-    font-size: 35px;
+
+.weather-information__condition-condition {
+    flex-basis: 50%;
 }
-#condition {
-    font-size: 20px;
-}
+
 /*Current Weather Panel - END*/ 
 
 
