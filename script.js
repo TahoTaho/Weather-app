@@ -71,8 +71,8 @@ function displayWeatherDetails(forecastData) {
 
     tempFelt.textContent = forecastData.current.feelslike_c + '°C';
     windSpeed.textContent = forecastData.current.wind_kph + ' km/h';
-    uvIndex.textContent = forecastData.current.uv; 
-    humidity.textContent = forecastData.current.humidity;  
+    uvIndex.textContent = getUVIndexStatus(forecastData.current.uv); 
+    humidity.textContent = forecastData.current.humidity + '%';  
 }
 
 function displayWeeklyForecast(forecastData) {
@@ -90,9 +90,9 @@ function displayDayOfWeek(forecastData) {
     const day6 = document.getElementById('day-6');
     const day7 = document.getElementById('day-7');
 
-    day1.textContent = getDay(forecastData.forecast.forecastday[0].date);
-    day2.textContent = getDay(forecastData.forecast.forecastday[1].date);
-    day3.textContent = getDay(forecastData.forecast.forecastday[2].date);
+    day1.textContent = getDayOfWeek(forecastData.forecast.forecastday[0].date);
+    day2.textContent = getDayOfWeek(forecastData.forecast.forecastday[1].date);
+    day3.textContent = getDayOfWeek(forecastData.forecast.forecastday[2].date);
 }
 
 function displayConditionOfDay(forecastData) {
@@ -123,7 +123,7 @@ function displayAvgTemperatureOfDay(forecastData) {
     day3Temp.textContent = forecastData.forecast.forecastday[2].day.avgtemp_c + '°C';
 }
 
-function getDay(date) {
+function getDayOfWeek(date) {
     const convDate = new Date(date).getDay();
     switch (convDate) {
         case 0: return 'Sunday';
@@ -135,6 +135,27 @@ function getDay(date) {
         case 6: return 'Saturday';
     }
 }
+
+function getUVIndexStatus(uv) {
+    if (uv <= 2) {
+        return "Low";
+    }
+
+    else if (uv <= 3 || uv <= 5) {
+        return "Medium";
+    }
+
+    else if (uv <= 6 || uv <= 7) {
+        return "High";
+    }
+    else if (uv <= 8 || uv <= 10) {
+        return "Very High";
+    }
+    else if (uv >= 11) {
+        return "Extreme";
+    }
+}
+
 
 function experiment() {
     for (let i = 0; i <= 6; i++) {
