@@ -1,0 +1,15 @@
+.weather-app__city {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex-grow: 1;
+}
+
+.weather-app__city-slot {
+    background: #EAC696;;
+    display: flex;
+}
+
+.weather-app__city-label {
+    flex-grow: 1;
+}

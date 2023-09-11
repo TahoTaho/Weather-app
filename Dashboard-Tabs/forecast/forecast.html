@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="forecast.css">
+    <link rel="stylesheet" href="../../style.css">
+    <script src="forecast.js"></script>
+</head>
+<body>
+    <div class="weather-app">
+        <div class="dashboard">
+            <button class="dashboard__button">Home</button>
+
+           <a href="../forecast/forecast.html">
+             <button class="dashboard__button">Weather</button>
+           </a>
+
+            <a href="../cities/cities.html">
+                <button class="dashboard__button">Cities</button>
+            </a>
+            <button class="dashboard__button">Map</button>
+            <button class="dashboard__button">Settings</button>
+        </div>
+
+        <div class="weather-app__panel">
+            <input type="text" class="weather-app__search-bar">
+            <div class="weather-app__content" id="tabContent">
+                <div class="weather-information">
+                    <div class="weather-information__current">
+                        <div class="weather-information__current-slot">
+                            <p class="weather-information__current-location" id="location-name">Location name here</p>
+                            <p class="weather-information__current-temperature" id="temperature">Temperature Here</p>
+                        </div>
+                        <div class="weather-information__current-slot">
+                            <p class="weather-information__current-condition" id="condition">Weather Condition</p>
+                        </div>
+                    </div>
+                
+                    <div class="weather-information__today">
+                        <h2 class="weather-information__label">Today's Forecast</h2>
+                        <div class="weather-information__time">
+                            <div class="weather-information__time-slot">
+                                <p class="weather-information__time-label">6:00AM</p>
+                                <p class="weather-information__time-condition" id="condition-6:00AM">condition</p>
+                                <p class="weather-information__time-temperature" id="temperature-6:00AM">Temperature</p>
+                            </div>
+                
+                            <div class="weather-information__time-slot">
+                                <p class="weather-information__time-label">9:00AM</p>
+                                <p class="weather-information__time-condition" id="condition-9:00AM">condition</p>
+                                <p class="weather-information__time-temperature" id="temperature-9:00AM">Temperature</p>
+                            </div>
+                
+                            <div class="weather-information__time-slot">
+                                <p class="weather-information__time-label">12:00PM</p>
+                                <p class="weather-information__time-condition" id="condition-12:00PM">condition</p>
+                                <p class="weather-information__time-temperature" id="temperature-12:00PM">Temperature</p>
+                            </div>
+                
+                            <div class="weather-information__time-slot">
+                                <p class="weather-information__time-label">3:00PM</p>
+                                <p class="weather-information__time-condition" id="condition-3:00PM">condition</p>
+                                <p class="weather-information__time-temperature" id="temperature-3:00PM">Temperature</p>
+                            </div>
+                
+                            <div class="weather-information__time-slot">
+                                <p class="weather-information__time-label">6:00PM</p>
+                                <p class="weather-information__time-condition" id="condition-6:00PM">condition</p>
+                                <p class="weather-information__time-temperature" id="temperature-6:00PM">Temperature</p>
+                            </div>
+                
+                            <div class="weather-information__time-slot">
+                                <p class="weather-information__time-label">9:00PM</p>
+                                <p class="weather-information__time-condition" id="condition-9:00PM">condition</p>
+                                <p class="weather-information__time-temperature" id="temperature-9:00PM">Temperature</p>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="weather-information__details">
+                        <h2 class="weather-information__label">Weather Details</h2>
+                        <div class="weather-information__condition">
+                            <div class="weather-information__condition-slot">
+                                <p class="weather-information__condition-data" id="temp-felt">Display Data Here</p>
+                                <p class="weather-information__condition-label">Temperature Felt</p>
+                            </div>
+                
+                            <div class="weather-information__condition-slot">
+                                <p class="weather-information__condition-data" id="wind-speed">Display Data Here</p>
+                                <p class="weather-information__condition-label">Wind Speed</p>
+                            </div>
+                
+                            <div class="weather-information__condition-slot">
+                                <p class="weather-information__condition-data" id="uv-index">Display Data Here</p>
+                                <p class="weather-information__condition-label">UV</p>
+                            </div>
+                
+                            <div class="weather-information__condition-slot">
+                                <p class="weather-information__condition-data" id="humidity">Display Data Here</p>
+                                <p class="weather-information__condition-label">Humidity</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="weekly-forecast"> 
+                    <h2 class="weather-information__label">7-DAY FORECAST</h2>
+                    <div class="weekly-forecast__day">
+                        <div class="weekly-forecast__day-slot">
+                            <p id="day-1">Date</p>
+                            <p id="day-1-condition">Condition</p>
+                            <p id="day-1-temperature">temperature</p>
+                        </div>
+                
+                        <div class="weekly-forecast__day-slot">
+                            <p id="day-2">Date</p>
+                            <p id="day-2-condition">Condition</p>
+                            <p id="day-2-temperature">temperature</p>
+                        </div>
+                
+                        <div class="weekly-forecast__day-slot">
+                            <p id="day-3">Date</p>
+                            <p id="day-3-condition">Condition</p>
+                            <p id="day-3-temperature">temperature</p>
+                        </div>
+                
+                        <div class="weekly-forecast__day-slot">
+                            <p id="day-4">Date</p>
+                            <p id="day-4-condition">Condition</p>
+                            <p id="day-4-temperature">temperature</p>
+                        </div>
+                
+                        <div class="weekly-forecast__day-slot">
+                            <p id="day-5">Date</p>
+                            <p id="day-5-condition">Condition</p>
+                            <p id="day-5-temperature">temperature</p>
+                        </div>
+                
+                        <div class="weekly-forecast__day-slot">
+                            <p id="day-6">Date</p>
+                            <p id="day-6-condition">Condition</p>
+                            <p id="day-6-temperature">temperature</p>
+                        </div>
+                
+                        <div class="weekly-forecast__day-slot">
+                            <p id="day-7">Date</p>
+                            <p id="day-7-condition">Condition</p>
+                            <p id="day-7-temperature">temperature</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
